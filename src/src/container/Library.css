@@ -1,0 +1,83 @@
+html, body { font-family: arial; }
+
+a { text-decoration: none; }
+
+nav { margin: 10px auto 30px auto; }
+nav a {
+	padding: 10px 15px;
+	/* margin: 0 10px; */
+	background-color: #BBB;
+	color: #333;
+	/* border-radius: 5px; */
+}
+nav a:hover { background-color: #EEE }
+nav a.active { background-color: #000; color: #FFF }
+
+.library {
+	text-align: center;
+	margin: 15px auto 0 auto;
+	width: 600px;
+}
+
+.not-found { color: #999; }
+
+form {
+	text-align: left;
+	padding: 20px 0 0 0;
+}
+
+form label {
+	font-weight: bold;
+}
+
+form .field-container {
+	margin: 10px 0;
+}
+
+form .invalid {
+	color: red;
+}
+
+form button {
+	margin: 20px 0 0 0;
+	padding: 5px 15px;
+	cursor: pointer;
+}
+
+.button {
+	color: #333;
+	margin: 0 5px 0 0;
+	padding: 5px 15px;
+	background-color: #BBB;
+	border-radius: 4px;
+	cursor: pointer;
+	border: 1px solid #BBB;
+	font-size: 14px;
+}
+.button:hover { background-color: #EEE }
+
+.book-data {
+	border: 1px solid #CCC;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	text-align: left;
+	width: 280px; /* 180px */
+	float: left;
+	margin: 10px
+}
+.book-data p {
+	margin: 0;
+	padding: 0;
+}
+.book-data .title {
+	color: grey;
+	font-size: 18px;
+	margin-bottom: 5px;
+}
+
+table {font-size: 14px; width: 100%}
+table tr {background-color: #F5F5F5}
+table thead tr th {padding: 5px; color: #EEE; background-color: #000}
+table tbody tr td {padding: 5px; color: #333;}
+table tbody tr:nth-child(odd) {background-color: #E9E9E9;}
