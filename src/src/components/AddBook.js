@@ -79,7 +79,7 @@ class AddBook extends React.Component {
 					</div>
 					<div className='field-container'>
 						<label htmlFor="isNew">New book?</label><br />
-						<input type="checkbox" id="isNew" name="isNew" value={this.state.isNew} onChange={this.handleChecked} />
+						<input type="checkbox" id="isNew" name="isNew" checked={this.state.isNew} onChange={this.handleChecked} />
 					</div>
 					<button type="submit">Save</button>
 				</form>
