@@ -12,6 +12,21 @@ class Books extends React.Component {
 			</div>
 		)
 	}
+
+	// componentDidUpdate = () => {
+	//
+	// }
+
+	/**
+	 * Update component if some update has been detected
+	 * @param  {object} nextProps Updated properties
+	 * @param  {object} nextState Updated state
+	 * @return {boolean}          True for update, False keeps the same
+	 */
+	// shouldComponentUpdate = (nextProps, nextState) => {
+	// 	console.log(this.props.booksList !== nextProps.booksList);
+	// 	return this.props.booksList !== nextProps.booksList;
+	// };
 }
 
 Books.propTypes = {

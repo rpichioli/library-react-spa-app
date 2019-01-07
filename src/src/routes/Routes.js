@@ -9,27 +9,29 @@ import AddBook from '../components/AddBook';
 import Books from '../components/Books';
 import History from '../components/History';
 
-const Routes = (props) => {
+class Routes extends React.Component {
 
-	// Books collection
-	let booksList = props.booksList;
-	// Operations collection
-	let operationsList = props.operationsList;
-	// Save book function sent from parent (root component) as property
-	let saveBook = props.saveBook;
-	// Remove the book by it's ID from root component
-	let deleteBook = props.deleteBook;
+	render () {
+		// Books collection
+		let booksList = this.props.booksList;
+		// Operations collection
+		let operationsList = this.props.operationsList;
+		// Save book function sent from parent (root component) as property
+		let saveBook = this.props.saveBook;
+		// Remove the book by it's ID from root component
+		let deleteBook = this.props.deleteBook;
 
-	return (
-		<Switch>
-			<Route exact path='/' component={Home} />
-			<Route path='/add-book' render={(props) => <AddBook {...props} insert={true} saveBook={saveBook} />} />
-			<Route path='/book/:id' render={(props) => <AddBook {...props} insert={false} saveBook={saveBook} booksList={booksList} />} />
-			<Route exact path='/books' render={(props) => <Books {...props} booksList={booksList} saveBook={saveBook} deleteBook={deleteBook} />} />
-			<Route exact path='/history' render={(props) => <History {...props} operationsList={operationsList} />} />
-			<Route component={NotFound} />
-		</Switch>
-	)
+		return (
+			<Switch>
+				<Route exact path='/' component={Home} />
+				<Route path='/add-book' render={(props) => <AddBook {...props} insert={true} saveBook={saveBook} />} />
+				<Route path='/book/:id' render={(props) => <AddBook {...props} insert={false} saveBook={saveBook} booksList={booksList} />} />
+				<Route exact path='/books' render={(props) => <Books {...props} booksList={booksList} saveBook={saveBook} deleteBook={deleteBook} />} />
+				<Route exact path='/history' render={(props) => <History {...props} operationsList={operationsList} />} />
+				<Route component={NotFound} />
+			</Switch>
+		)
+	}
 }
 
 Routes.propTypes = {

@@ -36,7 +36,10 @@ class AddBook extends React.Component {
 			// Destructing state to extract book data only
 			let { id, title, numPages, isNew, datetime } = this.state;
 			// Call parent funtion to save/update the book
-			this.props.saveBook({ id, title, numPages, isNew, datetime }, (this.props.insert) ? true : false);
+			this.props.saveBook(
+				{ id, title, numPages, isNew, datetime },
+				(this.props.insert) ? true : false
+			);
 			// Redirect to the list page
 			this.setState({ redirect: true });
 		}
@@ -70,12 +73,12 @@ class AddBook extends React.Component {
 					<div className={classnames('field-container', { invalid: errors.title })}>
 						<label htmlFor="title">Title:</label><br />
 						<input type="text" id="title" name="title" value={this.state.title} onChange={this.handleChange} />
-						{errors.title && <span>{errors.title}</span>}
+						{errors.title && <span className="invalid">{errors.title}</span>}
 					</div>
-					<div className={classnames('field-container', { invalid: errors.title })}>
+					<div className={classnames('field-container', { invalid: errors.numPages })}>
 						<label htmlFor="numPages">Number of Pages:</label><br />
 						<input type="text" id="numPages" name="numPages" value={this.state.numPages} onChange={this.handleChange} />
-						{errors.numPages && <span>{errors.numPages}</span>}
+						{errors.numPages && <span className="invalid">{errors.numPages}</span>}
 					</div>
 					<div className='field-container'>
 						<label htmlFor="isNew">New book?</label><br />

@@ -9,14 +9,14 @@ class History extends React.Component {
 		if (operationsList.length > 0) {
 			gridData = operationsList.map((history, i) => {
 				return (
-					<tr>
+					<tr key={i}>
 						<td>{history.id}</td>
 						<td>{history.bookId}</td>
-						<td>{history.datetime}</td>
-						<td>{history.type}</td>
 						<td>{history.title}</td>
+						<td>{history.type}</td>
 						<td>{history.numPages}</td>
 						<td>{history.new ? <span style={{'color':'green'}}>New</span> : <span style={{'color':'orange'}}>Used</span>}</td>
+						<td>{history.datetime.toLocaleDateString()} {history.datetime.toLocaleTimeString()}</td>
 					</tr>
 				);
 			})

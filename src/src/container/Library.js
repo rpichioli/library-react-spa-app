@@ -48,8 +48,14 @@ class Library extends Component {
 	deleteBook = (id) => {
 		// Register operation history
 		this.saveHistory(id, 'delete');
-		// Remove book by ID filtering directly in setState
-		this.setState({ booksList: this.state.booksList.filter(el => el.id !== id) });
+		// New list from state
+		let newBooksList = [...this.state.booksList];
+		// Finding index in list
+		let index = this.state.booksList.findIndex(el => el.id === id)[0];
+		// Remove from array
+		newBooksList.splice(index, 1)
+		// Register the list into state
+		this.setState({ booksList: newBooksList });
 	}
 
 	/**
@@ -64,7 +70,7 @@ class Library extends Component {
 
 			operation.id = id;
 			operation.bookId = (this.state.operationsList.length + 1);
-			operation.datetime = book.datetime.toLocaleDateString();
+			operation.datetime = book.datetime;
 			operation.type = type;
 			operation.title = book.title;
 			operation.numPages = book.numPages;
