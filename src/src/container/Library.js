@@ -12,7 +12,11 @@ class Library extends Component {
 
 	state = {
 		actualID: 0, // Book's next serial ID - default value for the first time
-		booksList: [], // Books collection
+		booksList: [
+			// {id: 1, title: 'a', datetime: new Date(), isNew: true, numPages: 150},
+			// {id: 2, title: 'b', datetime: new Date(), isNew: false, numPages: 500},
+			// {id: 3, title: 'c', datetime: new Date(), isNew: true, numPages: 2000}
+		], // Books collection
 		operationsList: [] // Operations collection
 	};
 
@@ -28,15 +32,17 @@ class Library extends Component {
 			// Set the ID to the book
 			book.id = id;
 			// Setting updated list and new ID into state
-			this.setState({ booksList: [...this.state.booksList, book], actualID: id }, () => {
-				// Register operation history
-				this.saveHistory(book.id, 'create');
+			this.setState({
+				booksList: [...this.state.booksList, book], actualID: id
+			}, () => {
+				this.saveHistory(book, 'create'); // Register operation history
 			});
 		} else {
 			// Update the state filling the specif object
-			this.setState({ booksList: this.state.booksList.map(el => el.id === book.id ? Object.assign({}, el, book) : el) }, () => {
-				// Register operation history
-				this.saveHistory(book.id, 'edit');
+			this.setState({
+				booksList: this.state.booksList.map(el => el.id === book.id ? Object.assign({}, el, book) : el)
+			}, () => {
+				this.saveHistory(book, 'edit'); // Register operation history
 			});
 		}
 	}
@@ -46,12 +52,14 @@ class Library extends Component {
 	 * @param  {integer} id Book ID
 	 */
 	deleteBook = (id) => {
+		let book = this.state.booksList.filter(el => el.id === id)[0];
 		// Register operation history
-		this.saveHistory(id, 'delete');
+		this.saveHistory(book, 'delete');
+
 		// New list from state
 		let newBooksList = [...this.state.booksList];
-		// Finding index in list
-		let index = this.state.booksList.findIndex(el => el.id === id)[0];
+		// Finding the book index in the array list
+		let index = newBooksList.findIndex(el => el.id === id);
 		// Remove from array
 		newBooksList.splice(index, 1)
 		// Register the list into state
@@ -63,13 +71,12 @@ class Library extends Component {
 	 * @param  {integer} id   Book ID
 	 * @param  {string} type  Operation to be saved
 	 */
-	saveHistory = (id, type) => {
-		const book = this.state.booksList.filter(el => el.id === id)[0];
+	saveHistory = (book, type) => {
 		if (book) {
 			let operation = {}; // index book datetime types title pages condition
 
-			operation.id = id;
-			operation.bookId = (this.state.operationsList.length + 1);
+			operation.id = (this.state.operationsList.length + 1);
+			operation.bookId = book.id;
 			operation.datetime = book.datetime;
 			operation.type = type;
 			operation.title = book.title;
@@ -78,6 +85,7 @@ class Library extends Component {
 
 			this.state.operationsList.unshift(operation); // Add into the beginning of the list
 		}
+		this.forceUpdate();
 	}
 
 	render() {

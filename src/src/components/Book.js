@@ -14,17 +14,20 @@ class Book extends React.Component {
 
 	render () {
 		// Return to the list if some the book is deleted
-		if (this.state.redirect) return (<Redirect to='/Books' />);
+		//if (this.state.redirect) return (<Redirect to='/Books' />);
 		// Getting the book data
 		let book = this.props.data;
 
 		return (
 			<div className="book-data">
 				<p className="title">{book.title}</p>
+
 				<p><b>ID:</b> {book.id}</p>
 				<p><b>Pages:</b> {book.numPages}</p>
 				<p><b>New:</b> {book.isNew ? 'Yes' : 'No'}</p>
-				<br />
+
+				<hr />
+
 				<NavLink className="button" to={`/book/${book.id}`}>Edit</NavLink>
 				<button className="button" onClick={() => this.handleClick()}>Delete</button>
 			</div>

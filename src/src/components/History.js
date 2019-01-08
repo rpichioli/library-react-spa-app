@@ -12,11 +12,11 @@ class History extends React.Component {
 					<tr key={i}>
 						<td>{history.id}</td>
 						<td>{history.bookId}</td>
-						<td>{history.title}</td>
+						<td>{history.datetime.toLocaleDateString()} {history.datetime.toLocaleTimeString()}</td>
 						<td>{history.type}</td>
+						<td>{history.title}</td>
 						<td>{history.numPages}</td>
 						<td>{history.new ? <span style={{'color':'green'}}>New</span> : <span style={{'color':'orange'}}>Used</span>}</td>
-						<td>{history.datetime.toLocaleDateString()} {history.datetime.toLocaleTimeString()}</td>
 					</tr>
 				);
 			})
@@ -24,7 +24,7 @@ class History extends React.Component {
 
 		return (
 			<div>
-				<h3>Operations history</h3>
+				<h3>All operations history</h3>
 
 				{
 					(gridData !== "") ?
@@ -45,7 +45,7 @@ class History extends React.Component {
 							</tbody>
 						</table>
 					:
-						<p>No history in the moment</p>
+						<p className="info">There are no operations resgistered.</p>
 				}
 			</div>
 		)

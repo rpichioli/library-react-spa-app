@@ -8,25 +8,10 @@ class Books extends React.Component {
 		return (
 			<div>
 				<h3>All registered books</h3>
-				{this.props.booksList.length > 0 ? books : "No books registered. Why don't you add some now?"}
+				{this.props.booksList.length > 0 ? books : <span className="info">No books registered. <br /><b>Why don't you add some now?</b></span>}
 			</div>
 		)
 	}
-
-	// componentDidUpdate = () => {
-	//
-	// }
-
-	/**
-	 * Update component if some update has been detected
-	 * @param  {object} nextProps Updated properties
-	 * @param  {object} nextState Updated state
-	 * @return {boolean}          True for update, False keeps the same
-	 */
-	// shouldComponentUpdate = (nextProps, nextState) => {
-	// 	console.log(this.props.booksList !== nextProps.booksList);
-	// 	return this.props.booksList !== nextProps.booksList;
-	// };
 }
 
 Books.propTypes = {

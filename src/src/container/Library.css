@@ -2,13 +2,17 @@ html, body { font-family: arial; }
 
 a { text-decoration: none; }
 
-nav { margin: 10px auto 30px auto; }
+nav {
+	margin: 10px auto 30px auto;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #999;
+}
 nav a {
 	padding: 10px 15px;
 	margin: 0 3px;
 	background-color: #BBB;
 	color: #333;
-	/* border-radius: 5px; */
+	border-radius: 5px;
 }
 nav a:hover { background-color: #EEE }
 nav a.active { background-color: #000; color: #FFF }
@@ -38,6 +42,10 @@ form .invalid {
 	color: red;
 }
 
+.info {
+	color: RGB(50, 100, 200);
+}
+
 form button {
 	margin: 20px 0 0 0;
 	padding: 5px 15px;
@@ -57,23 +65,30 @@ form button {
 .button:hover { background-color: #EEE }
 
 .book-data {
-	border: 1px solid #CCC;
+	/* border: 1px solid #CCC; */
 	padding: 10px;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	text-align: left;
 	width: 280px; /* 180px */
 	float: left;
-	margin: 10px
+	margin: 10px;
+	background-color: black;
+	color: white;
+	border-radius: 10px;
 }
 .book-data p {
 	margin: 0;
 	padding: 0;
 }
 .book-data .title {
-	color: grey;
+	color: orange;
 	font-size: 18px;
-	margin-bottom: 5px;
+	margin-bottom: 8px;
+	display: block;
+	width: 100%;
+	padding-bottom: 5px;
+	border-bottom: 1px solid orange;
 }
 
 table {font-size: 14px; width: 100%}

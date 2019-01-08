@@ -10,6 +10,7 @@ class Menu extends React.Component {
 					<NavLink activeonlywhenexact="active" exact to='/add-book'>Add Book</NavLink>
 					<NavLink activeonlywhenexact="active" exact to='/books'>Books</NavLink>
 					<NavLink activeonlywhenexact="active" exact to='/history'>History</NavLink>
+					<div style={{ clear: 'both' }}></div>
 				</nav>
 				{this.props.children}
 			</div>
