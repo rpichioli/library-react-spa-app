@@ -1,20 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import { NavLink, Redirect } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Book extends React.Component {
-	state = { redirect: false }
 
 	handleClick = () => {
 		// Remove the book from parent
 		this.props.deleteBook(this.props.data.id);
-		// Set state to provide redirect
-		this.setState({ redirect: true });
 	}
 
 	render () {
-		// Return to the list if some the book is deleted
-		//if (this.state.redirect) return (<Redirect to='/Books' />);
 		// Getting the book data
 		let book = this.props.data;
 
