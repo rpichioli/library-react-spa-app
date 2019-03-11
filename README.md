@@ -25,7 +25,7 @@ Simple like that!
 ### Suggestion
 - You can go deeper into React data management techniques taking a look at my React-Redux example repository [spa-with-react-redux](https://github.com/rpichioli/spa-with-react-redux). I used redux state store like database and passed by Redux essential principles and techniques to fetch data, persist the state, intercept updates to sync with localStorage, and more.
 
-- If you want to go ahead in a more advanced application like a Redux-Database interation within React + NodeJS RESTful API with relational database in a complete scenerio, I suggest you to see the repository [react-with-nodejs-and-sequelize](https://github.com/rpichioli/react-with-nodejs-and-sequelize). I used axios to request NodeJS API inside my actions scope and dispatched it to reducer that fills the store (Redux principles). The NodeJS Express API is using Sequelize ORM that manipulate relational database (MySQL) mapping tables and doing all the stuff that and ORM do naturally.
+- If you want to go ahead in a more advanced application like a Redux-Database interation within React + NodeJS RESTful API with relational database in a complete scenario, I suggest you to see the repository [react-with-nodejs-and-sequelize](https://github.com/rpichioli/react-with-nodejs-and-sequelize). I used axios to request NodeJS API inside my actions scope and dispatched it to reducer that fills the store (Redux principles). The NodeJS Express API is using Sequelize ORM that manipulate relational database (MySQL) mapping tables and doing all the stuff that and ORM do naturally.
 
 ### Developed by
 Rodrigo Quiñones Pichioli, since Dec/2018
